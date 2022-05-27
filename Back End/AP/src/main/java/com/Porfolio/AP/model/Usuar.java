@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Usuario implements Serializable {
+public class Usuar implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
@@ -18,10 +18,10 @@ public class Usuario implements Serializable {
     private String passUser;
     
 
-    public Usuario() {
+    public Usuar() {
     }
 
-    public Usuario(Long idUser, String nombreUser, String passUser) {
+    public Usuar(Long idUser, String nombreUser, String passUser) {
         this.idUser = idUser;
         this.nombreUser = nombreUser;
         this.passUser = passUser;

@@ -1,7 +1,7 @@
 
 package com.Porfolio.AP.service;
 
-import com.Porfolio.AP.model.Usuario;
+import com.Porfolio.AP.model.Usuar;
 import com.Porfolio.AP.repository.UsuarioRepo;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +19,23 @@ public class UsuarioService {
     }
     
     
-    public Usuario addUser(Usuario usuario){
+    public Usuar addUser(Usuar usuario){
         return usuarioRepo.save(usuario);
     }
     
-    public List<Usuario> buscarUser(Usuario usuario){
+    public List<Usuar> buscarUser(Usuar usuario){
         return usuarioRepo.findAll();
     }
     
-    public Usuario editarUser(Usuario usuario){
-        return usuarioRepo.save(usuario);
+    public Usuar editarUser(Usuar usuar){
+        return usuarioRepo.save(usuar);
     }
     
     public void borrarUser(Long id){
         usuarioRepo.deleteById(id);
     }
 
-    public Usuario buscarUsuarioPorId(Long id){
+    public Usuar buscarUsuarioPorId(Long id){
         return usuarioRepo.findById(id).orElse(null);
     }
     

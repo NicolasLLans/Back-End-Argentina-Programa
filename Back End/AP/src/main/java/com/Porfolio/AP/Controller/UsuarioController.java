@@ -1,6 +1,6 @@
 package com.Porfolio.AP.Controller;
 
-import com.Porfolio.AP.model.Usuario;
+import com.Porfolio.AP.model.Usuar;
 import com.Porfolio.AP.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuar")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UsuarioController {
     private final UsuarioService usuarioService;
@@ -22,19 +22,19 @@ public class UsuarioController {
     public UsuarioController(UsuarioService usuarioService){
         this.usuarioService = usuarioService;
     }
-    @PostMapping ("/new/usuario")
-    public void agregarUsuario (@RequestBody Usuario usuario){
+    @PostMapping ("/new/usuar")
+    public void agregarUsuario (@RequestBody Usuar usuario){
         usuarioService.addUser(usuario);
     }
     @GetMapping("/id/{id}")
-    public ResponseEntity<Usuario> obtenerUsuario(@PathVariable("id")Long id){
-        Usuario usuario = usuarioService.buscarUsuarioPorId(id);
-        return new ResponseEntity<>(usuario, HttpStatus.OK);
+    public ResponseEntity<Usuar> obtenerUsuario(@PathVariable("id")Long id){
+        Usuar usuar = usuarioService.buscarUsuarioPorId(id);
+        return new ResponseEntity<>(usuar, HttpStatus.OK);
     }
     
     @PutMapping("/update")
-    public ResponseEntity<Usuario> editarUsuario(@RequestBody Usuario usuario){
-        Usuario updateUsuario=usuarioService.editarUser(usuario);
+    public ResponseEntity<Usuar> editarUsuario(@RequestBody Usuar usuar){
+        Usuar updateUsuario=usuarioService.editarUser(usuar);
         return new ResponseEntity<>(updateUsuario,HttpStatus.OK);
     }
 }
