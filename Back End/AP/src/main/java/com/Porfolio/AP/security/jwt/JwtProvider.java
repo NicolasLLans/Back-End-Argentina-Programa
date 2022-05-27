@@ -15,9 +15,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JwtProvaider {
+public class JwtProvider {
     
-        private final static Logger logger = LoggerFactory.getLogger(JwtProvaider.class);
+        private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
         @Value("${jwt.secret}")
         private String secret;

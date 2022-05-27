@@ -18,12 +18,12 @@ public class UsuarioService{
         return usuarioRepository.findByNombreUsuario(nombreUsuario);
     }
     
-    public boolean existByNombreUsuario(String nombreUsuario){
-        return usuarioRepository.existByNombreUsuario(nombreUsuario);
+    public boolean existsByNombreUsuario(String nombreUsuario){
+        return usuarioRepository.existsByNombreUsuario(nombreUsuario);
     }
     
-    public boolean existByEmail(String email){
-        return usuarioRepository.existByEmail(email);
+    public boolean existsByEmail(String email){
+        return usuarioRepository.existsByEmail(email);
     }
     
     public void save(Usuario usuario){

@@ -7,13 +7,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+public class UsuarioPrincipal implements UserDetails {
 
-public class UsuarioPrincipal implements UserDetails{
     private String nombre;
     private String nombreUsuario;
     private String email;
     private String password;
-    private Collection<?extends GrantedAuthority> authorities;
+    private Collection<? extends GrantedAuthority> authorities;
 
     public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.nombre = nombre;
@@ -22,13 +22,13 @@ public class UsuarioPrincipal implements UserDetails{
         this.password = password;
         this.authorities = authorities;
     }
-    
-    public static UsuarioPrincipal build(Usuario usuario){
-        List<GrantedAuthority> authorities = 
-                usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol
-                        .getRolNombre().name())).collect(Collectors.toList());
+
+    public static UsuarioPrincipal build(Usuario usuario) {
+        List<GrantedAuthority> authorities
+                = usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol
+                .getRolNombre().name())).collect(Collectors.toList());
         return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(),
-        usuario.getEmail(), usuario.getPassword(), authorities);
+                usuario.getEmail(), usuario.getPassword(), authorities);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class UsuarioPrincipal implements UserDetails{
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;    
+        return false;
     }
 
     @Override
@@ -58,12 +58,12 @@ public class UsuarioPrincipal implements UserDetails{
 
     @Override
     public boolean isCredentialsNonExpired() {
-            return true;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-            return true;
+        return true;
     }
 
     public String getNombre() {
@@ -73,8 +73,5 @@ public class UsuarioPrincipal implements UserDetails{
     public String getEmail() {
         return email;
     }
-    
-    
-
 
 }
