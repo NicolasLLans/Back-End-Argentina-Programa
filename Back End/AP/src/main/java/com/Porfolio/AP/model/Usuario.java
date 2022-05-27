@@ -2,14 +2,11 @@
 package com.Porfolio.AP.model;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario implements Serializable {
@@ -19,15 +16,6 @@ public class Usuario implements Serializable {
     private Long idUser;
     private String nombreUser;
     private String passUser;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEdu")
-    public List<Educacion> educacionList;
-    
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idSkill")
-    public List<Skills> skillList;
-    
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idExp")
-    public List<Experiencia> experienciaList;
     
 
     public Usuario() {
