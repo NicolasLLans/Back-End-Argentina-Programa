@@ -63,8 +63,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-            <version>2.5.5</version>
-            <type>module</type>
         </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

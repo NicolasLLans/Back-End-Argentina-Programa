@@ -1,4 +1,4 @@
-package com.Porfolio.AP.security.entity;
+ package com.Porfolio.AP.security.entity;
 
 import java.util.Collection;
 import java.util.List;
@@ -48,7 +48,7 @@ public class UsuarioPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override

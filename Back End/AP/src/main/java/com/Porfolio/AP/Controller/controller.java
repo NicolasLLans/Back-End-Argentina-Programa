@@ -4,6 +4,7 @@ import com.Porfolio.AP.model.Persona;
 import com.Porfolio.AP.service.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class controller {
     public void agregarPersona (@RequestBody Persona pers){
         persoServ.crearPersona(pers);
     }
-   
+    
     @GetMapping ("/ver/personas")
     @ResponseBody
     public List<Persona> verPersonas (){
