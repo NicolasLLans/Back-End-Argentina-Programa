@@ -1,6 +1,6 @@
 package com.Porfolio.AP.security.dto;
 
- import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 public class LoginUsuario {
     @NotBlank
@@ -23,6 +23,4 @@ public class LoginUsuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
 }

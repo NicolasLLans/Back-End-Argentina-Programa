@@ -1,14 +1,14 @@
  package com.Porfolio.AP.security.entity;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UsuarioPrincipal implements UserDetails {
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
+public class UsuarioPrincipal implements UserDetails {
     private String nombre;
     private String nombreUsuario;
     private String email;
@@ -23,12 +23,11 @@ public class UsuarioPrincipal implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UsuarioPrincipal build(Usuario usuario) {
-        List<GrantedAuthority> authorities
-                = usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol
+    public static UsuarioPrincipal build(Usuario usuario){
+        List<GrantedAuthority> authorities =
+                usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol
                 .getRolNombre().name())).collect(Collectors.toList());
-        return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(),
-                usuario.getEmail(), usuario.getPassword(), authorities);
+        return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(), usuario.getEmail(), usuario.getPassword(), authorities);
     }
 
     @Override
@@ -73,5 +72,4 @@ public class UsuarioPrincipal implements UserDetails {
     public String getEmail() {
         return email;
     }
-
 }

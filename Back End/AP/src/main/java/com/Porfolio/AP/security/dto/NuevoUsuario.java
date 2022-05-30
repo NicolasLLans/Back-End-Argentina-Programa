@@ -1,9 +1,9 @@
 package com.Porfolio.AP.security.dto;
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
+import java.util.Set;
 
 public class NuevoUsuario {
     @NotBlank

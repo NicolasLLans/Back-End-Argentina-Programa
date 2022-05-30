@@ -2,7 +2,7 @@ package com.Porfolio.AP.security;
 
 import com.Porfolio.AP.security.jwt.JwtEntryPoint;
 import com.Porfolio.AP.security.jwt.JwtTokenFilter;
-import com.Porfolio.AP.security.service.UserDetailsServiceImp;
+import com.Porfolio.AP.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,11 +23,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class MainSegurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserDetailsServiceImp userDetailsService;
+    UserDetailsServiceImpl userDetailsService;
     
-    @Autowired
+        @Autowired
     JwtEntryPoint jwtEntryPoint;
-    
+
     @Bean
     public JwtTokenFilter jwtTokenFilter(){
         return new JwtTokenFilter();
@@ -66,4 +66,5 @@ public class MainSegurity extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
 }
