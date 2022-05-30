@@ -5,6 +5,7 @@ import com.Porfolio.AP.service.ProyectosService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class ProyectosController {
     public ProyectosController(ProyectosService proyectosService) {
         this.proyectosService = proyectosService;
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Proyectos> addProyectos(@RequestBody Proyectos proyectos) {
         Proyectos newProyecto = proyectosService.addProyectos(proyectos);
@@ -38,12 +39,14 @@ public class ProyectosController {
         return new ResponseEntity<>(proyectos, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Proyectos> editarProyectos(@RequestBody Proyectos proyectos) {
         Proyectos updateProyectos = proyectosService.editarProyectos(proyectos);
         return new ResponseEntity<>(updateProyectos, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("delete/{id}")
     public ResponseEntity<?> borrarProyectos(@PathVariable("id") Long id) {
         proyectosService.borrarProyectos(id);

@@ -5,6 +5,7 @@ import com.Porfolio.AP.service.AcercaDeService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,6 +27,7 @@ public class AcercaDeController {
         List<AcercaDe> acercaDe = acercaDeService.buscarAcercaDe();
         return new ResponseEntity<>(acercaDe, HttpStatus.OK);
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<AcercaDe> editarAcercaDe(@RequestBody AcercaDe acercaDe) {
         AcercaDe updateAcercaDe = acercaDeService.editarAcercaDe(acercaDe);

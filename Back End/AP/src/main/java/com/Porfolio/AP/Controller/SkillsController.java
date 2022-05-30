@@ -5,6 +5,7 @@ import com.Porfolio.AP.service.SkillsService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,7 @@ public class SkillsController {
         this.skillsService = skillsService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Skills> addSkills(@RequestBody Skills skills) {
         Skills newSkills = skillsService.addSkills(skills);
@@ -38,12 +40,14 @@ public class SkillsController {
         return new ResponseEntity<>(skills, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Skills> editarSkills(@RequestBody Skills skills) {
         Skills updateSkills = skillsService.editarSkills(skills);
         return new ResponseEntity<>(updateSkills, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("delete/{id}")
     public ResponseEntity<?> borrarSkills(@PathVariable("id") Long id) {
         skillsService.borrarSkills(id);
