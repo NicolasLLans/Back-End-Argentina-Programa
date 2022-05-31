@@ -1,4 +1,4 @@
-/**package com.Porfolio.AP.security.util;
+package com.Porfolio.AP.security.util;
 
 import com.Porfolio.AP.security.entity.Rol;
 import com.Porfolio.AP.security.enums.RolNombre;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  *
  */
 
-/**@Component
+@Component
 public class CreateRoles implements CommandLineRunner {
 
 @Autowired
@@ -28,4 +28,4 @@ public void run(String... args) throws Exception {
   rolService.save(rolUser);
    
   } 
-}*/
+}
