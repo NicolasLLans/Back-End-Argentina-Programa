@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/skills")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://appargentinaprograma.web.app","http://localhost:4200"})
 public class SkillsController {
 
     private final SkillsService skillsService;
@@ -48,7 +48,7 @@ public class SkillsController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> borrarSkills(@PathVariable("id") Long id) {
         skillsService.borrarSkills(id);
         return new ResponseEntity<>(HttpStatus.OK);

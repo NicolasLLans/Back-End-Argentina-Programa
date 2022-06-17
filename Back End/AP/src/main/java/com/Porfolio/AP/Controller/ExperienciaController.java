@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/experiencia")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"https://appargentinaprograma.web.app","http://localhost:4200"})
 public class ExperienciaController {
     
     private final ExperienciaService experienciaService;
@@ -45,7 +45,7 @@ public class ExperienciaController {
         return new ResponseEntity<>(updateExperiencia,HttpStatus.OK);
     }
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
           public ResponseEntity<?> borrarEducacion(@PathVariable ("id") Long id){
               experienciaService.borrarExperiencia(id);
               return new ResponseEntity<>(HttpStatus.OK);
