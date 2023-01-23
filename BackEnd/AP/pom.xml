@@ -12,7 +12,7 @@
     <artifactId>AP</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>AP</name>
-    <description>porfolio argentina porgrama</description>
+    <description>porfolio argentina programa</description>
     <properties>
         <java.version>11</java.version>
     </properties>
